@@ -130,7 +130,7 @@ with signed provenance. Registry recipe: `sybil-solutions/local-ai-registry`,
 `vllm-deepseek-v4.1-flash-1017-exl3-2.7bpw-spark-256k-2x`.
 
 ```bash
-# on both Sparks, same absolute path (about 400 GB: 196 GB of this repo + DeepSeek's 203 GB Engram shards)
+# on both Sparks, same absolute path (about 400 GB: 199 GB of this repo + DeepSeek's 203 GB Engram shards)
 hf download 0xSero/DeepSeek-V4.1-Flash-1017-EXL3-2.7bpw --local-dir ~/models/dsv41-1017-exl3
 hf download deepseek-ai/DeepSeek-V4.1-Flash-1017 model-00047-of-00048.safetensors model-00048-of-00048.safetensors \
   --revision 1bae0e1088993b9b82de08f59de5be5a34e42170 --local-dir ~/models/dsv41-1017-exl3
