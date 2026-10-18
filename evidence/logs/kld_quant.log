@@ -1,0 +1,1894 @@
+[transformers] You are using a model of type `deepseek_v41` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+layer  0 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 21s
+layer  1 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 241s
+layer  2 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 19s
+layer  3 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 18s
+layer  4 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 18s
+layer  5 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 18s
+layer  6 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 18s
+layer  7 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 18s
+layer  8 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 18s
+layer  9 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 18s
+layer 10 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 18s
+layer 11 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 18s
+layer 12 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 17s
+layer 13 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 17s
+layer 14 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 236s
+layer 15 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 17s
+layer 16 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 16s
+layer 17 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 16s
+layer 18 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 17s
+layer 19 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 16s
+layer 20 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 16s
+layer 21 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 15s
+layer 22 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 15s
+layer 23 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 15s
+layer 24 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 14s
+layer 25 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 14s
+layer 26 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 14s
+layer 27 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 14s
+layer 28 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 14s
+layer 29 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 14s
+layer 30 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 13s
+layer 31 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 13s
+layer 32 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 13s
+layer 33 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 13s
+layer 34 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 13s
+layer 35 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 13s
+layer 36 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 13s
+layer 37 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 17s
+layer 38 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 17s
+layer 39 EXL3 + dense attn.wo_a,attn.wkv,attn.wo_b,attn.wq_a,attn.wq_b,ffn.shared_experts.w1,ffn.shared_experts.w2,ffn.shared_experts.w3: 17s
+{
+ "positions": 254846,
+ "kld_mean": 0.030393974855542183,
+ "kld_p99": 0.43473199009895325,
+ "top1_agreement": 0.9494988918304443,
+ "nll_native": 0.4706500470638275,
+ "nll_ours": 0.4843266010284424,
+ "tensors": "/data/wip/p1_T",
+ "exl3_ckpt": "",
+ "dense": "/data/dense_T",
+ "overlaid": {
+  "head": "/data/dense_T",
+  "0": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "1": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "2": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "3": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "4": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "5": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "6": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "7": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "8": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "9": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "10": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "11": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "12": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "13": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "14": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "15": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "16": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "17": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "18": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "19": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "20": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "21": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "22": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "23": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "24": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "25": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "26": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "27": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "28": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "29": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "30": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "31": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "32": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "33": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "34": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "35": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "36": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "37": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "38": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ],
+  "39": [
+   "attn.wo_a",
+   "attn.wkv",
+   "attn.wo_b",
+   "attn.wq_a",
+   "attn.wq_b",
+   "ffn.shared_experts.w1",
+   "ffn.shared_experts.w2",
+   "ffn.shared_experts.w3"
+  ]
+ },
+ "per_seq": [
+  {
+   "id": "p0004",
+   "domain": "code",
+   "kl_sum": 49.18639373779297,
+   "agree_sum": 1881.0,
+   "positions": 1990
+  },
+  {
+   "id": "p0005",
+   "domain": "code",
+   "kl_sum": 32.41393280029297,
+   "agree_sum": 1915.0,
+   "positions": 1986
+  },
+  {
+   "id": "p0006",
+   "domain": "code",
+   "kl_sum": 7.778421878814697,
+   "agree_sum": 1967.0,
+   "positions": 1990
+  },
+  {
+   "id": "p0013",
+   "domain": "code",
+   "kl_sum": 47.00016784667969,
+   "agree_sum": 1874.0,
+   "positions": 1994
+  },
+  {
+   "id": "p0014",
+   "domain": "code",
+   "kl_sum": 34.31031036376953,
+   "agree_sum": 1926.0,
+   "positions": 2016
+  },
+  {
+   "id": "p0015",
+   "domain": "code",
+   "kl_sum": 32.09299087524414,
+   "agree_sum": 1913.0,
+   "positions": 1987
+  },
+  {
+   "id": "p0019",
+   "domain": "code",
+   "kl_sum": 45.010074615478516,
+   "agree_sum": 1877.0,
+   "positions": 1983
+  },
+  {
+   "id": "p0020",
+   "domain": "code",
+   "kl_sum": 46.46198654174805,
+   "agree_sum": 1892.0,
+   "positions": 1997
+  },
+  {
+   "id": "p0021",
+   "domain": "code",
+   "kl_sum": 22.49277687072754,
+   "agree_sum": 1814.0,
+   "positions": 1863
+  },
+  {
+   "id": "p0022",
+   "domain": "code",
+   "kl_sum": 15.484505653381348,
+   "agree_sum": 681.0,
+   "positions": 715
+  },
+  {
+   "id": "p0024",
+   "domain": "code",
+   "kl_sum": 27.853649139404297,
+   "agree_sum": 1915.0,
+   "positions": 1993
+  },
+  {
+   "id": "p0025",
+   "domain": "code",
+   "kl_sum": 35.93596649169922,
+   "agree_sum": 1898.0,
+   "positions": 1992
+  },
+  {
+   "id": "p0030",
+   "domain": "code",
+   "kl_sum": 16.042648315429688,
+   "agree_sum": 1088.0,
+   "positions": 1118
+  },
+  {
+   "id": "p0031",
+   "domain": "code",
+   "kl_sum": 34.93514633178711,
+   "agree_sum": 1958.0,
+   "positions": 2025
+  },
+  {
+   "id": "p0036",
+   "domain": "code",
+   "kl_sum": 18.38241958618164,
+   "agree_sum": 1201.0,
+   "positions": 1251
+  },
+  {
+   "id": "p0037",
+   "domain": "code",
+   "kl_sum": 24.034076690673828,
+   "agree_sum": 1927.0,
+   "positions": 1989
+  },
+  {
+   "id": "p0042",
+   "domain": "code",
+   "kl_sum": 41.13507080078125,
+   "agree_sum": 1791.0,
+   "positions": 1888
+  },
+  {
+   "id": "p0044",
+   "domain": "code",
+   "kl_sum": 38.733184814453125,
+   "agree_sum": 1924.0,
+   "positions": 1988
+  },
+  {
+   "id": "p0045",
+   "domain": "code",
+   "kl_sum": 9.056602478027344,
+   "agree_sum": 859.0,
+   "positions": 879
+  },
+  {
+   "id": "p0047",
+   "domain": "code",
+   "kl_sum": 31.417776107788086,
+   "agree_sum": 1895.0,
+   "positions": 1989
+  },
+  {
+   "id": "p0048",
+   "domain": "code",
+   "kl_sum": 30.132427215576172,
+   "agree_sum": 1896.0,
+   "positions": 1976
+  },
+  {
+   "id": "p0049",
+   "domain": "code",
+   "kl_sum": 45.47650909423828,
+   "agree_sum": 1875.0,
+   "positions": 1985
+  },
+  {
+   "id": "p0050",
+   "domain": "code",
+   "kl_sum": 12.406543731689453,
+   "agree_sum": 1236.0,
+   "positions": 1265
+  },
+  {
+   "id": "p0055",
+   "domain": "code",
+   "kl_sum": 44.93244934082031,
+   "agree_sum": 1893.0,
+   "positions": 1987
+  },
+  {
+   "id": "p0056",
+   "domain": "code",
+   "kl_sum": 38.16902542114258,
+   "agree_sum": 1905.0,
+   "positions": 1996
+  },
+  {
+   "id": "p0059",
+   "domain": "code",
+   "kl_sum": 12.97573184967041,
+   "agree_sum": 1576.0,
+   "positions": 1601
+  },
+  {
+   "id": "p0061",
+   "domain": "code",
+   "kl_sum": 37.043861389160156,
+   "agree_sum": 1908.0,
+   "positions": 2009
+  },
+  {
+   "id": "p0065",
+   "domain": "code",
+   "kl_sum": 45.33308410644531,
+   "agree_sum": 1868.0,
+   "positions": 1986
+  },
+  {
+   "id": "p0066",
+   "domain": "code",
+   "kl_sum": 36.26359939575195,
+   "agree_sum": 1907.0,
+   "positions": 1985
+  },
+  {
+   "id": "p0068",
+   "domain": "code",
+   "kl_sum": 67.01834106445312,
+   "agree_sum": 1847.0,
+   "positions": 1988
+  },
+  {
+   "id": "p0071",
+   "domain": "code",
+   "kl_sum": 35.797035217285156,
+   "agree_sum": 1824.0,
+   "positions": 1910
+  },
+  {
+   "id": "p0074",
+   "domain": "code",
+   "kl_sum": 24.973878860473633,
+   "agree_sum": 1914.0,
+   "positions": 1991
+  },
+  {
+   "id": "p0082",
+   "domain": "code",
+   "kl_sum": 48.555084228515625,
+   "agree_sum": 1868.0,
+   "positions": 1988
+  },
+  {
+   "id": "p0083",
+   "domain": "code",
+   "kl_sum": 7.1594038009643555,
+   "agree_sum": 791.0,
+   "positions": 807
+  },
+  {
+   "id": "p0084",
+   "domain": "code",
+   "kl_sum": 17.25846290588379,
+   "agree_sum": 1540.0,
+   "positions": 1588
+  },
+  {
+   "id": "p0085",
+   "domain": "code",
+   "kl_sum": 20.307315826416016,
+   "agree_sum": 1286.0,
+   "positions": 1331
+  },
+  {
+   "id": "p0086",
+   "domain": "code",
+   "kl_sum": 25.28475570678711,
+   "agree_sum": 1910.0,
+   "positions": 1976
+  },
+  {
+   "id": "p0087",
+   "domain": "code",
+   "kl_sum": 37.46361541748047,
+   "agree_sum": 1902.0,
+   "positions": 1998
+  },
+  {
+   "id": "p0088",
+   "domain": "code",
+   "kl_sum": 35.713069915771484,
+   "agree_sum": 1903.0,
+   "positions": 1990
+  },
+  {
+   "id": "p0090",
+   "domain": "code",
+   "kl_sum": 57.2697639465332,
+   "agree_sum": 1654.0,
+   "positions": 1748
+  },
+  {
+   "id": "p0098",
+   "domain": "code",
+   "kl_sum": 20.920520782470703,
+   "agree_sum": 1954.0,
+   "positions": 1998
+  },
+  {
+   "id": "p0099",
+   "domain": "code",
+   "kl_sum": 34.699031829833984,
+   "agree_sum": 1909.0,
+   "positions": 1980
+  },
+  {
+   "id": "p0100",
+   "domain": "code",
+   "kl_sum": 9.727153778076172,
+   "agree_sum": 1207.0,
+   "positions": 1235
+  },
+  {
+   "id": "p0101",
+   "domain": "code",
+   "kl_sum": 31.62359046936035,
+   "agree_sum": 1915.0,
+   "positions": 1993
+  },
+  {
+   "id": "p0102",
+   "domain": "code",
+   "kl_sum": 53.98708724975586,
+   "agree_sum": 1887.0,
+   "positions": 1995
+  },
+  {
+   "id": "p0107",
+   "domain": "code",
+   "kl_sum": 15.736469268798828,
+   "agree_sum": 1986.0,
+   "positions": 2017
+  },
+  {
+   "id": "p0109",
+   "domain": "code",
+   "kl_sum": 21.821245193481445,
+   "agree_sum": 1944.0,
+   "positions": 1994
+  },
+  {
+   "id": "p0110",
+   "domain": "code",
+   "kl_sum": 52.372657775878906,
+   "agree_sum": 1863.0,
+   "positions": 1988
+  },
+  {
+   "id": "p0111",
+   "domain": "code",
+   "kl_sum": 18.649703979492188,
+   "agree_sum": 1977.0,
+   "positions": 2020
+  },
+  {
+   "id": "p0113",
+   "domain": "code",
+   "kl_sum": 60.58907699584961,
+   "agree_sum": 1869.0,
+   "positions": 1987
+  },
+  {
+   "id": "p0115",
+   "domain": "code",
+   "kl_sum": 5.678529262542725,
+   "agree_sum": 388.0,
+   "positions": 394
+  },
+  {
+   "id": "p0120",
+   "domain": "code",
+   "kl_sum": 20.25936508178711,
+   "agree_sum": 625.0,
+   "positions": 668
+  },
+  {
+   "id": "p0121",
+   "domain": "code",
+   "kl_sum": 22.882843017578125,
+   "agree_sum": 1414.0,
+   "positions": 1454
+  },
+  {
+   "id": "p0122",
+   "domain": "code",
+   "kl_sum": 14.528139114379883,
+   "agree_sum": 804.0,
+   "positions": 831
+  },
+  {
+   "id": "p0125",
+   "domain": "code",
+   "kl_sum": 8.075284004211426,
+   "agree_sum": 592.0,
+   "positions": 608
+  },
+  {
+   "id": "p0126",
+   "domain": "code",
+   "kl_sum": 30.089672088623047,
+   "agree_sum": 1940.0,
+   "positions": 2016
+  },
+  {
+   "id": "p0131",
+   "domain": "code",
+   "kl_sum": 13.383213996887207,
+   "agree_sum": 1981.0,
+   "positions": 2016
+  },
+  {
+   "id": "p0132",
+   "domain": "code",
+   "kl_sum": 14.116476058959961,
+   "agree_sum": 634.0,
+   "positions": 661
+  },
+  {
+   "id": "p0133",
+   "domain": "code",
+   "kl_sum": 26.83848762512207,
+   "agree_sum": 1955.0,
+   "positions": 2015
+  },
+  {
+   "id": "p0136",
+   "domain": "code",
+   "kl_sum": 59.78295135498047,
+   "agree_sum": 1844.0,
+   "positions": 1991
+  },
+  {
+   "id": "p0143",
+   "domain": "code",
+   "kl_sum": 9.755674362182617,
+   "agree_sum": 695.0,
+   "positions": 719
+  },
+  {
+   "id": "p0145",
+   "domain": "code",
+   "kl_sum": 22.77158546447754,
+   "agree_sum": 1142.0,
+   "positions": 1188
+  },
+  {
+   "id": "p0148",
+   "domain": "code",
+   "kl_sum": 62.91138458251953,
+   "agree_sum": 1859.0,
+   "positions": 1991
+  },
+  {
+   "id": "p0155",
+   "domain": "code",
+   "kl_sum": 14.604427337646484,
+   "agree_sum": 1130.0,
+   "positions": 1153
+  },
+  {
+   "id": "p0156",
+   "domain": "code",
+   "kl_sum": 10.79250717163086,
+   "agree_sum": 920.0,
+   "positions": 944
+  },
+  {
+   "id": "p0158",
+   "domain": "code",
+   "kl_sum": 23.050922393798828,
+   "agree_sum": 1913.0,
+   "positions": 1983
+  },
+  {
+   "id": "p0160",
+   "domain": "code",
+   "kl_sum": 17.34933853149414,
+   "agree_sum": 1125.0,
+   "positions": 1159
+  },
+  {
+   "id": "p0162",
+   "domain": "code",
+   "kl_sum": 46.842498779296875,
+   "agree_sum": 1885.0,
+   "positions": 1980
+  },
+  {
+   "id": "p0163",
+   "domain": "code",
+   "kl_sum": 34.130130767822266,
+   "agree_sum": 1926.0,
+   "positions": 2013
+  },
+  {
+   "id": "p0164",
+   "domain": "code",
+   "kl_sum": 35.06724166870117,
+   "agree_sum": 1690.0,
+   "positions": 1775
+  },
+  {
+   "id": "p0166",
+   "domain": "code",
+   "kl_sum": 42.99462890625,
+   "agree_sum": 1868.0,
+   "positions": 1975
+  },
+  {
+   "id": "p0168",
+   "domain": "code",
+   "kl_sum": 22.3446044921875,
+   "agree_sum": 1958.0,
+   "positions": 2008
+  },
+  {
+   "id": "p0176",
+   "domain": "code",
+   "kl_sum": 6.762558937072754,
+   "agree_sum": 906.0,
+   "positions": 921
+  },
+  {
+   "id": "p0182",
+   "domain": "code",
+   "kl_sum": 43.01047134399414,
+   "agree_sum": 1883.0,
+   "positions": 1998
+  },
+  {
+   "id": "p0183",
+   "domain": "code",
+   "kl_sum": 46.8033561706543,
+   "agree_sum": 1885.0,
+   "positions": 1986
+  },
+  {
+   "id": "p0185",
+   "domain": "code",
+   "kl_sum": 29.828310012817383,
+   "agree_sum": 1917.0,
+   "positions": 1992
+  },
+  {
+   "id": "p0188",
+   "domain": "code",
+   "kl_sum": 18.594181060791016,
+   "agree_sum": 1960.0,
+   "positions": 1978
+  },
+  {
+   "id": "p0191",
+   "domain": "code",
+   "kl_sum": 36.43813705444336,
+   "agree_sum": 1906.0,
+   "positions": 1995
+  },
+  {
+   "id": "p0194",
+   "domain": "code",
+   "kl_sum": 50.31680679321289,
+   "agree_sum": 1872.0,
+   "positions": 1978
+  },
+  {
+   "id": "p0197",
+   "domain": "code",
+   "kl_sum": 37.74443054199219,
+   "agree_sum": 1908.0,
+   "positions": 1994
+  },
+  {
+   "id": "p0198",
+   "domain": "code",
+   "kl_sum": 20.80084991455078,
+   "agree_sum": 1411.0,
+   "positions": 1456
+  },
+  {
+   "id": "p0204",
+   "domain": "code",
+   "kl_sum": 32.790042877197266,
+   "agree_sum": 1915.0,
+   "positions": 1997
+  },
+  {
+   "id": "p0207",
+   "domain": "code",
+   "kl_sum": 46.440120697021484,
+   "agree_sum": 1898.0,
+   "positions": 1997
+  },
+  {
+   "id": "p0209",
+   "domain": "code",
+   "kl_sum": 47.555362701416016,
+   "agree_sum": 1881.0,
+   "positions": 1979
+  },
+  {
+   "id": "p0210",
+   "domain": "code",
+   "kl_sum": 17.621370315551758,
+   "agree_sum": 1896.0,
+   "positions": 1933
+  },
+  {
+   "id": "p0211",
+   "domain": "code",
+   "kl_sum": 24.282442092895508,
+   "agree_sum": 1680.0,
+   "positions": 1748
+  },
+  {
+   "id": "p0213",
+   "domain": "code",
+   "kl_sum": 38.942928314208984,
+   "agree_sum": 1900.0,
+   "positions": 1998
+  },
+  {
+   "id": "p0217",
+   "domain": "code",
+   "kl_sum": 16.54470443725586,
+   "agree_sum": 1984.0,
+   "positions": 2020
+  },
+  {
+   "id": "p0218",
+   "domain": "code",
+   "kl_sum": 11.83655071258545,
+   "agree_sum": 1988.0,
+   "positions": 2018
+  },
+  {
+   "id": "p0220",
+   "domain": "code_debug",
+   "kl_sum": 9.110247611999512,
+   "agree_sum": 254.0,
+   "positions": 269
+  },
+  {
+   "id": "p0224",
+   "domain": "code_debug",
+   "kl_sum": 16.567554473876953,
+   "agree_sum": 902.0,
+   "positions": 952
+  },
+  {
+   "id": "p0229",
+   "domain": "code_debug",
+   "kl_sum": 76.32293701171875,
+   "agree_sum": 1829.0,
+   "positions": 1968
+  },
+  {
+   "id": "p0230",
+   "domain": "code_debug",
+   "kl_sum": 26.42676544189453,
+   "agree_sum": 855.0,
+   "positions": 912
+  },
+  {
+   "id": "p0234",
+   "domain": "code_debug",
+   "kl_sum": 14.782729148864746,
+   "agree_sum": 644.0,
+   "positions": 682
+  },
+  {
+   "id": "p0237",
+   "domain": "code_debug",
+   "kl_sum": 21.42840003967285,
+   "agree_sum": 773.0,
+   "positions": 822
+  },
+  {
+   "id": "p0238",
+   "domain": "code_debug",
+   "kl_sum": 34.889862060546875,
+   "agree_sum": 1359.0,
+   "positions": 1444
+  },
+  {
+   "id": "p0239",
+   "domain": "code_debug",
+   "kl_sum": 63.5820426940918,
+   "agree_sum": 1846.0,
+   "positions": 1973
+  },
+  {
+   "id": "p0243",
+   "domain": "code_debug",
+   "kl_sum": 51.63353729248047,
+   "agree_sum": 1807.0,
+   "positions": 1953
+  },
+  {
+   "id": "p0246",
+   "domain": "agentic",
+   "kl_sum": 37.567481994628906,
+   "agree_sum": 638.0,
+   "positions": 702
+  },
+  {
+   "id": "p0248",
+   "domain": "agentic",
+   "kl_sum": 10.535293579101562,
+   "agree_sum": 280.0,
+   "positions": 299
+  },
+  {
+   "id": "p0253",
+   "domain": "agentic",
+   "kl_sum": 41.76518630981445,
+   "agree_sum": 927.0,
+   "positions": 997
+  },
+  {
+   "id": "p0257",
+   "domain": "agentic",
+   "kl_sum": 1.6524085998535156,
+   "agree_sum": 202.0,
+   "positions": 202
+  },
+  {
+   "id": "p0263",
+   "domain": "agentic",
+   "kl_sum": 8.789957046508789,
+   "agree_sum": 384.0,
+   "positions": 399
+  },
+  {
+   "id": "p0264",
+   "domain": "agentic",
+   "kl_sum": 28.621166229248047,
+   "agree_sum": 1058.0,
+   "positions": 1122
+  },
+  {
+   "id": "p0271",
+   "domain": "agentic",
+   "kl_sum": 35.06877517700195,
+   "agree_sum": 1535.0,
+   "positions": 1621
+  },
+  {
+   "id": "p0273",
+   "domain": "agentic",
+   "kl_sum": 32.58441925048828,
+   "agree_sum": 1245.0,
+   "positions": 1298
+  },
+  {
+   "id": "p0276",
+   "domain": "agentic",
+   "kl_sum": 21.97986602783203,
+   "agree_sum": 1303.0,
+   "positions": 1347
+  },
+  {
+   "id": "p0277",
+   "domain": "agentic",
+   "kl_sum": 9.056958198547363,
+   "agree_sum": 331.0,
+   "positions": 347
+  },
+  {
+   "id": "p0279",
+   "domain": "agentic",
+   "kl_sum": 25.623628616333008,
+   "agree_sum": 1094.0,
+   "positions": 1154
+  },
+  {
+   "id": "p0280",
+   "domain": "agentic",
+   "kl_sum": 15.684738159179688,
+   "agree_sum": 742.0,
+   "positions": 775
+  },
+  {
+   "id": "p0282",
+   "domain": "agentic",
+   "kl_sum": 20.425399780273438,
+   "agree_sum": 973.0,
+   "positions": 1016
+  },
+  {
+   "id": "p0284",
+   "domain": "agentic",
+   "kl_sum": 5.295007228851318,
+   "agree_sum": 242.0,
+   "positions": 246
+  },
+  {
+   "id": "p0285",
+   "domain": "agentic",
+   "kl_sum": 11.484172821044922,
+   "agree_sum": 302.0,
+   "positions": 318
+  },
+  {
+   "id": "p0286",
+   "domain": "agentic",
+   "kl_sum": 7.926245212554932,
+   "agree_sum": 313.0,
+   "positions": 330
+  },
+  {
+   "id": "p0289",
+   "domain": "agentic",
+   "kl_sum": 7.594229221343994,
+   "agree_sum": 320.0,
+   "positions": 336
+  },
+  {
+   "id": "p0290",
+   "domain": "agentic",
+   "kl_sum": 14.745513916015625,
+   "agree_sum": 389.0,
+   "positions": 419
+  },
+  {
+   "id": "p0291",
+   "domain": "agentic",
+   "kl_sum": 10.287793159484863,
+   "agree_sum": 398.0,
+   "positions": 420
+  },
+  {
+   "id": "p0293",
+   "domain": "agentic",
+   "kl_sum": 15.370719909667969,
+   "agree_sum": 597.0,
+   "positions": 626
+  },
+  {
+   "id": "p0295",
+   "domain": "agentic",
+   "kl_sum": 34.75286102294922,
+   "agree_sum": 926.0,
+   "positions": 967
+  },
+  {
+   "id": "p0297",
+   "domain": "agentic",
+   "kl_sum": 36.859161376953125,
+   "agree_sum": 921.0,
+   "positions": 974
+  },
+  {
+   "id": "p0299",
+   "domain": "agentic",
+   "kl_sum": 6.46824312210083,
+   "agree_sum": 173.0,
+   "positions": 183
+  },
+  {
+   "id": "p0301",
+   "domain": "agentic",
+   "kl_sum": 21.367523193359375,
+   "agree_sum": 552.0,
+   "positions": 588
+  },
+  {
+   "id": "p0304",
+   "domain": "math",
+   "kl_sum": 8.015335083007812,
+   "agree_sum": 386.0,
+   "positions": 400
+  },
+  {
+   "id": "p0308",
+   "domain": "math",
+   "kl_sum": 5.668507099151611,
+   "agree_sum": 198.0,
+   "positions": 210
+  },
+  {
+   "id": "p0313",
+   "domain": "math",
+   "kl_sum": 13.295967102050781,
+   "agree_sum": 648.0,
+   "positions": 678
+  },
+  {
+   "id": "p0314",
+   "domain": "math",
+   "kl_sum": 28.427406311035156,
+   "agree_sum": 1912.0,
+   "positions": 1985
+  },
+  {
+   "id": "p0321",
+   "domain": "math",
+   "kl_sum": 5.598202705383301,
+   "agree_sum": 475.0,
+   "positions": 482
+  },
+  {
+   "id": "p0323",
+   "domain": "math",
+   "kl_sum": 8.32613754272461,
+   "agree_sum": 390.0,
+   "positions": 415
+  },
+  {
+   "id": "p0325",
+   "domain": "math",
+   "kl_sum": 6.024007797241211,
+   "agree_sum": 300.0,
+   "positions": 312
+  },
+  {
+   "id": "p0326",
+   "domain": "math",
+   "kl_sum": 7.885488033294678,
+   "agree_sum": 534.0,
+   "positions": 553
+  },
+  {
+   "id": "p0328",
+   "domain": "math",
+   "kl_sum": 66.86898803710938,
+   "agree_sum": 1845.0,
+   "positions": 1990
+  },
+  {
+   "id": "p0330",
+   "domain": "math",
+   "kl_sum": 44.22149658203125,
+   "agree_sum": 1519.0,
+   "positions": 1611
+  },
+  {
+   "id": "p0331",
+   "domain": "math",
+   "kl_sum": 49.57113265991211,
+   "agree_sum": 1857.0,
+   "positions": 1989
+  },
+  {
+   "id": "p0332",
+   "domain": "knowledge",
+   "kl_sum": 96.24980163574219,
+   "agree_sum": 1820.0,
+   "positions": 2000
+  },
+  {
+   "id": "p0336",
+   "domain": "knowledge",
+   "kl_sum": 124.39501953125,
+   "agree_sum": 1802.0,
+   "positions": 1999
+  },
+  {
+   "id": "p0337",
+   "domain": "knowledge",
+   "kl_sum": 74.527587890625,
+   "agree_sum": 1833.0,
+   "positions": 1989
+  },
+  {
+   "id": "p0340",
+   "domain": "knowledge",
+   "kl_sum": 47.82792663574219,
+   "agree_sum": 1090.0,
+   "positions": 1162
+  },
+  {
+   "id": "p0342",
+   "domain": "knowledge",
+   "kl_sum": 52.37574768066406,
+   "agree_sum": 1904.0,
+   "positions": 1976
+  },
+  {
+   "id": "p0343",
+   "domain": "knowledge",
+   "kl_sum": 39.93203353881836,
+   "agree_sum": 369.0,
+   "positions": 407
+  },
+  {
+   "id": "p0348",
+   "domain": "knowledge",
+   "kl_sum": 72.57083129882812,
+   "agree_sum": 572.0,
+   "positions": 626
+  },
+  {
+   "id": "p0349",
+   "domain": "knowledge",
+   "kl_sum": 66.16874694824219,
+   "agree_sum": 678.0,
+   "positions": 745
+  },
+  {
+   "id": "p0354",
+   "domain": "knowledge",
+   "kl_sum": 116.24674987792969,
+   "agree_sum": 1075.0,
+   "positions": 1180
+  },
+  {
+   "id": "p0357",
+   "domain": "knowledge",
+   "kl_sum": 110.6371078491211,
+   "agree_sum": 1830.0,
+   "positions": 2009
+  },
+  {
+   "id": "p0359",
+   "domain": "writing",
+   "kl_sum": 82.46980285644531,
+   "agree_sum": 636.0,
+   "positions": 689
+  },
+  {
+   "id": "p0364",
+   "domain": "writing",
+   "kl_sum": 41.069091796875,
+   "agree_sum": 109.0,
+   "positions": 133
+  },
+  {
+   "id": "p0365",
+   "domain": "writing",
+   "kl_sum": 45.50251770019531,
+   "agree_sum": 1620.0,
+   "positions": 1727
+  },
+  {
+   "id": "p0367",
+   "domain": "writing",
+   "kl_sum": 51.995872497558594,
+   "agree_sum": 692.0,
+   "positions": 756
+  },
+  {
+   "id": "p0370",
+   "domain": "writing",
+   "kl_sum": 21.168405532836914,
+   "agree_sum": 41.0,
+   "positions": 51
+  },
+  {
+   "id": "p0371",
+   "domain": "writing",
+   "kl_sum": 150.39178466796875,
+   "agree_sum": 1424.0,
+   "positions": 1583
+  },
+  {
+   "id": "p0374",
+   "domain": "chat",
+   "kl_sum": 174.5236053466797,
+   "agree_sum": 1704.0,
+   "positions": 1892
+  },
+  {
+   "id": "p0376",
+   "domain": "chat",
+   "kl_sum": 212.24642944335938,
+   "agree_sum": 1807.0,
+   "positions": 2004
+  },
+  {
+   "id": "p0377",
+   "domain": "chat",
+   "kl_sum": 146.9025421142578,
+   "agree_sum": 1808.0,
+   "positions": 2002
+  },
+  {
+   "id": "p0387",
+   "domain": "chat",
+   "kl_sum": 166.46405029296875,
+   "agree_sum": 1782.0,
+   "positions": 1995
+  },
+  {
+   "id": "p0388",
+   "domain": "chat",
+   "kl_sum": 43.01903533935547,
+   "agree_sum": 668.0,
+   "positions": 720
+  },
+  {
+   "id": "p0390",
+   "domain": "chat",
+   "kl_sum": 184.6858367919922,
+   "agree_sum": 1803.0,
+   "positions": 2005
+  },
+  {
+   "id": "p0391",
+   "domain": "chat",
+   "kl_sum": 105.66896057128906,
+   "agree_sum": 660.0,
+   "positions": 745
+  },
+  {
+   "id": "p0393",
+   "domain": "chat",
+   "kl_sum": 124.91409301757812,
+   "agree_sum": 1347.0,
+   "positions": 1472
+  },
+  {
+   "id": "p0394",
+   "domain": "chat",
+   "kl_sum": 149.19229125976562,
+   "agree_sum": 1812.0,
+   "positions": 1992
+  },
+  {
+   "id": "p0395",
+   "domain": "chat",
+   "kl_sum": 41.57218933105469,
+   "agree_sum": 667.0,
+   "positions": 716
+  },
+  {
+   "id": "p0397",
+   "domain": "chat",
+   "kl_sum": 28.26913833618164,
+   "agree_sum": 390.0,
+   "positions": 425
+  },
+  {
+   "id": "p0403",
+   "domain": "chat",
+   "kl_sum": 124.17182922363281,
+   "agree_sum": 1853.0,
+   "positions": 2008
+  },
+  {
+   "id": "p0407",
+   "domain": "multilingual_ja",
+   "kl_sum": 53.99610900878906,
+   "agree_sum": 504.0,
+   "positions": 538
+  },
+  {
+   "id": "p0409",
+   "domain": "multilingual_ko",
+   "kl_sum": 20.641725540161133,
+   "agree_sum": 260.0,
+   "positions": 275
+  },
+  {
+   "id": "p0410",
+   "domain": "multilingual_es",
+   "kl_sum": 43.540992736816406,
+   "agree_sum": 944.0,
+   "positions": 1002
+  },
+  {
+   "id": "p0415",
+   "domain": "multilingual_de",
+   "kl_sum": 153.73934936523438,
+   "agree_sum": 962.0,
+   "positions": 1046
+  },
+  {
+   "id": "p0418",
+   "domain": "multilingual_ar",
+   "kl_sum": 57.45012664794922,
+   "agree_sum": 641.0,
+   "positions": 689
+  },
+  {
+   "id": "p0425",
+   "domain": "multilingual_id",
+   "kl_sum": 44.427825927734375,
+   "agree_sum": 457.0,
+   "positions": 488
+  },
+  {
+   "id": "p0426",
+   "domain": "multilingual_tr",
+   "kl_sum": 51.45030975341797,
+   "agree_sum": 708.0,
+   "positions": 743
+  },
+  {
+   "id": "p0427",
+   "domain": "multilingual_ne",
+   "kl_sum": 97.20785522460938,
+   "agree_sum": 917.0,
+   "positions": 984
+  },
+  {
+   "id": "p0428",
+   "domain": "multilingual_zh",
+   "kl_sum": 139.9832000732422,
+   "agree_sum": 1847.0,
+   "positions": 2006
+  },
+  {
+   "id": "p0429",
+   "domain": "multilingual_ja",
+   "kl_sum": 50.107521057128906,
+   "agree_sum": 807.0,
+   "positions": 849
+  },
+  {
+   "id": "p0431",
+   "domain": "long_context",
+   "kl_sum": 10.51711654663086,
+   "agree_sum": 56.0,
+   "positions": 62
+  },
+  {
+   "id": "p0434",
+   "domain": "long_context",
+   "kl_sum": 19.618574142456055,
+   "agree_sum": 438.0,
+   "positions": 465
+  },
+  {
+   "id": "p0435",
+   "domain": "long_context",
+   "kl_sum": 19.218957901000977,
+   "agree_sum": 1095.0,
+   "positions": 1124
+  },
+  {
+   "id": "p0436",
+   "domain": "long_context",
+   "kl_sum": 32.510833740234375,
+   "agree_sum": 783.0,
+   "positions": 843
+  },
+  {
+   "id": "p0437",
+   "domain": "long_context",
+   "kl_sum": 18.452735900878906,
+   "agree_sum": 576.0,
+   "positions": 604
+  },
+  {
+   "id": "p0439",
+   "domain": "long_context",
+   "kl_sum": 5.2251787185668945,
+   "agree_sum": 71.0,
+   "positions": 74
+  },
+  {
+   "id": "p0440",
+   "domain": "long_context",
+   "kl_sum": 58.83333206176758,
+   "agree_sum": 1095.0,
+   "positions": 1171
+  },
+  {
+   "id": "p0445",
+   "domain": "long_context",
+   "kl_sum": 24.99917984008789,
+   "agree_sum": 799.0,
+   "positions": 842
+  },
+  {
+   "id": "p0446",
+   "domain": "long_context",
+   "kl_sum": 15.907636642456055,
+   "agree_sum": 567.0,
+   "positions": 586
+  },
+  {
+   "id": "p0449",
+   "domain": "long_context",
+   "kl_sum": 8.180946350097656,
+   "agree_sum": 340.0,
+   "positions": 354
+  },
+  {
+   "id": "p0450",
+   "domain": "long_context",
+   "kl_sum": 51.442649841308594,
+   "agree_sum": 919.0,
+   "positions": 983
+  },
+  {
+   "id": "p0455",
+   "domain": "long_context",
+   "kl_sum": 8.462455749511719,
+   "agree_sum": 841.0,
+   "positions": 858
+  },
+  {
+   "id": "p0459",
+   "domain": "long_context",
+   "kl_sum": 27.324970245361328,
+   "agree_sum": 757.0,
+   "positions": 774
+  },
+  {
+   "id": "p0460",
+   "domain": "long_context",
+   "kl_sum": 2.4695868492126465,
+   "agree_sum": 122.0,
+   "positions": 126
+  },
+  {
+   "id": "p0461",
+   "domain": "long_context",
+   "kl_sum": 59.661190032958984,
+   "agree_sum": 936.0,
+   "positions": 1017
+  },
+  {
+   "id": "p0462",
+   "domain": "long_context",
+   "kl_sum": 0.0,
+   "agree_sum": 0.0,
+   "positions": 0
+  },
+  {
+   "id": "p0463",
+   "domain": "long_context",
+   "kl_sum": 38.63329315185547,
+   "agree_sum": 423.0,
+   "positions": 444
+  },
+  {
+   "id": "p0468",
+   "domain": "long_context",
+   "kl_sum": 20.22568130493164,
+   "agree_sum": 572.0,
+   "positions": 604
+  },
+  {
+   "id": "p0470",
+   "domain": "long_context",
+   "kl_sum": 28.894664764404297,
+   "agree_sum": 719.0,
+   "positions": 768
+  },
+  {
+   "id": "p0472",
+   "domain": "long_context",
+   "kl_sum": 0.0,
+   "agree_sum": 0.0,
+   "positions": 0
+  },
+  {
+   "id": "p0480",
+   "domain": "long_context",
+   "kl_sum": 9.709848403930664,
+   "agree_sum": 271.0,
+   "positions": 286
+  },
+  {
+   "id": "p0484",
+   "domain": "long_context",
+   "kl_sum": 26.915834426879883,
+   "agree_sum": 765.0,
+   "positions": 811
+  },
+  {
+   "id": "p0485",
+   "domain": "long_context",
+   "kl_sum": 10.049036979675293,
+   "agree_sum": 669.0,
+   "positions": 691
+  },
+  {
+   "id": "p0486",
+   "domain": "long_context",
+   "kl_sum": 68.24984741210938,
+   "agree_sum": 899.0,
+   "positions": 935
+  },
+  {
+   "id": "p0489",
+   "domain": "long_context",
+   "kl_sum": 9.916412353515625,
+   "agree_sum": 298.0,
+   "positions": 316
+  },
+  {
+   "id": "p0496",
+   "domain": "long_context",
+   "kl_sum": 15.233863830566406,
+   "agree_sum": 506.0,
+   "positions": 541
+  },
+  {
+   "id": "p0498",
+   "domain": "long_context",
+   "kl_sum": 16.714805603027344,
+   "agree_sum": 221.0,
+   "positions": 234
+  },
+  {
+   "id": "p0499",
+   "domain": "long_context",
+   "kl_sum": 16.575563430786133,
+   "agree_sum": 929.0,
+   "positions": 944
+  }
+ ],
+ "by_domain": {
+  "agentic": {
+   "kld": 0.02765832129648431,
+   "top1": 0.9495984657796955,
+   "positions": 16686
+  },
+  "chat": {
+   "kld": 0.08353526930730502,
+   "top1": 0.906820204717401,
+   "positions": 17976
+  },
+  "code": {
+   "kld": 0.01818510246910909,
+   "top1": 0.9583378664249018,
+   "positions": 165450
+  },
+  "knowledge": {
+   "kld": 0.05683187063698027,
+   "top1": 0.920527921663237,
+   "positions": 14093
+  },
+  "long": {
+   "kld": 0.037913604923388994,
+   "top1": 0.951996111077353,
+   "positions": 16457
+  },
+  "math": {
+   "kld": 0.02295554531321806,
+   "top1": 0.9472,
+   "positions": 10625
+  },
+  "multilingual": {
+   "kld": 0.08266183472564768,
+   "top1": 0.9335266821345708,
+   "positions": 8620
+  },
+  "writing": {
+   "kld": 0.07948926403156102,
+   "top1": 0.9155699534318688,
+   "positions": 4939
+  }
+ },
+ "ppl_native": 1.6010346028657845,
+ "ppl_ours": 1.6230816592352115
+}

@@ -1,0 +1,468 @@
+diff --git a/scripts/quantize/caldata/build_1017.py b/scripts/quantize/caldata/build_1017.py
+new file mode 100644
+index 0000000..c9ca44e
+--- /dev/null
++++ b/scripts/quantize/caldata/build_1017.py
+@@ -0,0 +1,137 @@
++# SPDX-License-Identifier: Apache-2.0
++"""Calibration token set for DeepSeek-V4.1-Flash-1017 at the owner composition: agentic 35 / coding 25 /
++religion + philosophy 20 / multilingual 10 / structured 10 (token shares), plus random-token rows (outside the
++families, as in build.py) so rarely routed experts still see inputs.
++
++Sources: generate_muse.py's native replies to the Muse calibration prompts (records carry `family`), and generate.py's
++native replies to sudoingx's base prompts (split "cal" only; the "panel" split stays out of calibration). Conversations
++are rendered with the checkpoint's own encoder (build.make_encoder) and cut into --window token windows; for agentic
++traces the window holding the native final turn is always taken first. Wikipedia documents are tokenized as plain
++text. exllamav3's standard calibration text tops up a family only when its native pool is short.
++
++  python3 build_1017.py /model muse_1017.jsonl base_1017.jsonl /std_cal_dir /out [--tokens 1200000 --window 2048]
++
++Writes cal.safetensors (tokens int32, offsets int64) and cal_index.json (source, id, domain = family, length), the
++format p4_pass0.py / p4_pass1.py read.
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import os
++import random
++
++import torch
++from safetensors.torch import save_file
++
++from build import make_encoder, pack
++
++SEED = 20261017
++SHARES = {"agentic": 0.35, "coding": 0.25, "religion_philosophy": 0.20, "multilingual": 0.10, "structured": 0.10}
++BASE_FAMILY = {"code": "coding", "code_debug": "coding", "math": "coding", "agentic": "agentic",
++               "knowledge": "religion_philosophy", "writing": "religion_philosophy", "chat": "structured"}
++STD_FAMILY = {"code.utf8": "coding", "multilingual.utf8": "multilingual", "wiki.utf8": "religion_philosophy",
++              "technical.utf8": "structured", "c4.utf8": "structured"}
++
++
++def base_family(domain):
++    if domain.startswith("multilingual"):
++        return "multilingual"
++    return BASE_FAMILY.get(domain, "structured")
++
++
++def windows(ids, w, min_len, tail_first):
++    out = [ids[s: s + w] for s in range(0, len(ids), w)]
++    out = [x for x in out if len(x) >= min_len] or [ids[-w:]]
++    if tail_first:
++        out = [ids[-w:]] + [x for x in out[:-1]]          # the window that ends on the native turn
++    return out
++
++
++def main():
++    ap = argparse.ArgumentParser()
++    ap.add_argument("model")
++    ap.add_argument("muse")
++    ap.add_argument("base")
++    ap.add_argument("std_dir")
++    ap.add_argument("out")
++    ap.add_argument("--tokens", type=int, default=1_200_000)
++    ap.add_argument("--window", type=int, default=2048)
++    ap.add_argument("--min-len", type=int, default=256)
++    ap.add_argument("--random-rows", type=int, default=8)
++    a = ap.parse_args()
++    tok, encode = make_encoder(a.model)
++    rng = random.Random(SEED)
++
++    pools = {f: [] for f in SHARES}                        # family -> [(priority, ids, meta)]
++    for line in open(a.muse):
++        r = json.loads(line)
++        if r.get("text"):
++            ids = tok.encode(r["text"], add_special_tokens=False).ids
++            for i, x in enumerate(windows(ids, a.window, a.min_len, False)):
++                pools[r["family"]].append((1 + i, x, {"source": "muse_wiki", "id": r["id"], "sub": r["domain"]}))
++            continue
++        ids, _ = encode(r)
++        agentic = r["family"] == "agentic"
++        for i, x in enumerate(windows(ids, a.window, a.min_len, agentic)):
++            pools[r["family"]].append((i, x, {"source": "muse_native", "id": r["id"], "sub": r["domain"]}))
++    for line in open(a.base):
++        r = json.loads(line)
++        if r["split"] != "cal":
++            continue
++        fam = base_family(r["domain"])
++        ids, _ = encode(r)
++        for i, x in enumerate(windows(ids, a.window, a.min_len, fam == "agentic")):
++            pools[fam].append((i, x, {"source": "base_native", "id": r["id"], "sub": r["domain"]}))
++
++    std = {}
++    for fname, fam in STD_FAMILY.items():
++        with open(os.path.join(a.std_dir, fname), encoding="utf8") as f:
++            std[fname] = (fam, tok.encode(f.read(), add_special_tokens=False).ids)
++
++    cal, idx, report = [], [], {}
++    for fam, share in SHARES.items():
++        quota = int(a.tokens * share)
++        pool = pools[fam]
++        rng.shuffle(pool)
++        pool.sort(key=lambda p: p[0])                      # first / tail windows of every conversation before later ones
++        got = 0
++        for _, x, meta in pool:
++            if got >= quota:
++                break
++            x = x[: quota - got] if quota - got < len(x) and quota - got >= a.min_len else x
++            cal.append(x)
++            idx.append({**meta, "domain": fam, "length": len(x)})
++            got += len(x)
++        native = got
++        for fname, (sfam, ids) in std.items():
++            while sfam == fam and got < quota:
++                s = rng.randrange(0, max(1, len(ids) - a.window))
++                x = ids[s: s + min(a.window, quota - got)]
++                cal.append(x)
++                idx.append({"source": "exllamav3_std", "id": f"{fname}@{s}", "sub": fname, "domain": fam,
++                            "length": len(x)})
++                got += len(x)
++        report[fam] = {"quota": quota, "tokens": got, "native": native, "pool_tokens": sum(len(p[1]) for p in pool),
++                       "pool_conversations": len({p[2]["id"] for p in pool})}
++
++    vocab = tok.get_vocab_size()
++    g = torch.Generator().manual_seed(SEED)
++    for i in range(a.random_rows):
++        cal.append(torch.randint(0, vocab, (a.window,), generator=g).tolist())
++        idx.append({"source": "random", "id": f"random{i}", "sub": "random", "domain": "random", "length": a.window})
++
++    os.makedirs(a.out, exist_ok=True)
++    t, o = pack(cal)
++    save_file({"tokens": t, "offsets": o}, os.path.join(a.out, "cal.safetensors"))
++    json.dump(idx, open(os.path.join(a.out, "cal_index.json"), "w"), indent=0)
++    total = sum(x["length"] for x in idx)
++    fam_tokens = {f: sum(x["length"] for x in idx if x["domain"] == f) for f in list(SHARES) + ["random"]}
++    report["_total"] = {"sequences": len(cal), "tokens": total,
++                        "shares": {f: round(v / total, 4) for f, v in fam_tokens.items()}}
++    json.dump(report, open(os.path.join(a.out, "cal_report.json"), "w"), indent=1)
++    print(json.dumps(report, indent=1))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/quantize/caldata/generate.py b/scripts/quantize/caldata/generate.py
+index d905268..ffc2388 100644
+--- a/scripts/quantize/caldata/generate.py
++++ b/scripts/quantize/caldata/generate.py
+@@ -25,8 +25,9 @@ from prompts import TOOL_RESULTS
+ SETS = {"base": prompts, "instruct": prompts_instruct}
+ FOLLOWUPS = prompts.FOLLOWUPS                   # replaced by the chosen set's in main()
+ 
+-URL = "https://openrouter.ai/api/v1/chat/completions"
+-MODEL = "deepseek/deepseek-v4.1-flash"
++URL = os.environ.get("GEN_URL", "https://openrouter.ai/api/v1/chat/completions")
++MODEL = os.environ.get("GEN_MODEL", "deepseek/deepseek-v4.1-flash")
++LOCAL = "GEN_URL" in os.environ                 # a local OpenAI-compatible server on the native weights: no provider routing
+ PROVIDERS = ["DeepInfra", "Together", "Parasail", "BaseTen", "SiliconFlow", "Novita", "CoreWeave", "GMICloud",
+              "AtlasCloud", "StreamLake"]
+ lock = threading.Lock()
+@@ -34,6 +35,8 @@ spent = [0.0]
+ 
+ 
+ def read_key(path):
++    if LOCAL:
++        return os.environ.get("GEN_API_KEY", "local")
+     if not path:
+         if os.environ.get("OPENROUTER_API_KEY"):
+             return os.environ["OPENROUTER_API_KEY"].strip()
+@@ -46,6 +49,12 @@ def read_key(path):
+ 
+ 
+ def call(key, messages, tools, thinking, effort, max_tokens=6000, tries=5):
++    if LOCAL:                                   # no output cap: the native reply runs to its own end
++        body = {"model": MODEL, "messages": messages, "chat_template_kwargs": (
++            {"thinking": True, "reasoning_effort": effort} if thinking else {"thinking": False})}
++        if tools:
++            body["tools"] = tools
++        return post(key, body, tries)
+     body = {"model": MODEL, "messages": messages, "max_tokens": max_tokens, "usage": {"include": True},
+             # DeepSeek's own endpoint is excluded by the account's no-training guardrail; these serve the official
+             # FP8 / MXFP4 checkpoint ("fp8" on OpenRouter) and pass it. Only these, never an FP4 re-quantization.
+@@ -53,6 +62,10 @@ def call(key, messages, tools, thinking, effort, max_tokens=6000, tries=5):
+     if tools:
+         body["tools"] = tools
+     body["reasoning"] = {"effort": effort} if thinking else {"enabled": False}
++    return post(key, body, tries)
++
++
++def post(key, body, tries):
+     data = json.dumps(body).encode()
+     for attempt in range(tries):
+         req = urllib.request.Request(URL, data=data, headers={"Authorization": f"Bearer {key}",
+@@ -74,8 +87,8 @@ def call(key, messages, tools, thinking, effort, max_tokens=6000, tries=5):
+ def assistant_message(resp):
+     m = resp["choices"][0]["message"]
+     msg = {"role": "assistant", "content": m.get("content") or ""}
+-    if m.get("reasoning"):
+-        msg["reasoning_content"] = m["reasoning"]
++    if m.get("reasoning") or m.get("reasoning_content"):
++        msg["reasoning_content"] = m.get("reasoning") or m["reasoning_content"]
+     if m.get("tool_calls"):
+         msg["tool_calls"] = [{"id": t.get("id"), "type": "function",
+                               "function": {"name": t["function"]["name"], "arguments": t["function"]["arguments"]}}
+diff --git a/scripts/quantize/caldata/generate_muse.py b/scripts/quantize/caldata/generate_muse.py
+new file mode 100644
+index 0000000..5c40ef4
+--- /dev/null
++++ b/scripts/quantize/caldata/generate_muse.py
+@@ -0,0 +1,103 @@
++# SPDX-License-Identifier: Apache-2.0
++"""Native DeepSeek-V4.1-Flash-1017 replies for the Muse calibration prompts (owner composition: agentic 35 / coding 25 /
++religion + philosophy 20 / multilingual 10 / structured 10), from a local OpenAI-compatible server on the native
++weights. Agentic traces keep their recorded context up to the last user or tool message and get one native assistant
++turn; prompts get a full native reply. Wikipedia documents pass through as text. No output cap. Resumable.
++
++  GEN_URL=http://127.0.0.1:8000/v1/chat/completions GEN_MODEL=deepseek-v4.1-flash \
++    python3 generate_muse.py muse_cal_prompts.jsonl muse_1017.jsonl [--workers 16]
++"""
++from __future__ import annotations
++
++import argparse
++import ast
++import json
++import os
++import threading
++import time
++from concurrent.futures import ThreadPoolExecutor
++
++from generate import assistant_message, post
++
++URL_MODEL = os.environ.get("GEN_MODEL", "deepseek-v4.1-flash")
++lock = threading.Lock()
++
++
++def lit(v):
++    return ast.literal_eval(v) if isinstance(v, str) else v
++
++
++def normalize(r):
++    """OpenAI-shaped messages + tools from a Muse record (stringified lists, tools on the first message)."""
++    msgs, tools = [], None
++    for m in r["messages"]:
++        m = dict(m)
++        if "tools" in m:
++            tools = lit(m.pop("tools")) or tools
++        if "tool_calls" in m:
++            m["tool_calls"] = [{"id": t.get("id"), "type": "function",
++                                "function": {"name": t["function"]["name"],
++                                             "arguments": t["function"]["arguments"]
++                                             if isinstance(t["function"]["arguments"], str)
++                                             else json.dumps(t["function"]["arguments"])}}
++                               for t in lit(m["tool_calls"])]
++        if m["role"] == "system" and not m.get("content") and not tools:
++            continue
++        msgs.append(m)
++    if msgs and msgs[0]["role"] == "system" and not msgs[0].get("content"):
++        msgs = msgs[1:]
++    while msgs and msgs[-1]["role"] == "assistant":      # the native turn replaces whatever the trace recorded last
++        msgs.pop()
++    return msgs, tools
++
++
++def run(r):
++    if r["kind"] == "wiki_document":
++        text = "\n\n".join(m.get("content") or "" for m in lit(r["messages"]))
++        return {**{k: r[k] for k in ("id", "domain", "family", "kind")}, "split": "cal", "text": text,
++                "thinking": False, "effort": None, "tools": None, "messages": []}
++    msgs, tools = normalize(r)
++    body = {"model": URL_MODEL, "messages": msgs, "chat_template_kwargs": (
++        {"thinking": True, "reasoning_effort": r["effort"]} if r["thinking"] else {"thinking": False})}
++    if tools:
++        body["tools"] = tools
++    resp = post("local", body, 5)
++    a, fin = assistant_message(resp)
++    return {**{k: r[k] for k in ("id", "domain", "family", "kind", "thinking", "effort")}, "split": "cal",
++            "tools": tools, "messages": msgs + [a], "meta": {"finish": [fin], "usage": resp.get("usage")}}
++
++
++def main():
++    ap = argparse.ArgumentParser()
++    ap.add_argument("prompts")
++    ap.add_argument("out")
++    ap.add_argument("--workers", type=int, default=16)
++    a = ap.parse_args()
++    items = [json.loads(line) for line in open(a.prompts)]
++    done = set()
++    if os.path.exists(a.out):
++        done = {json.loads(line)["id"] for line in open(a.out)}
++    todo = [it for it in items if it["id"] not in done]
++    print(f"{len(items)} items, {len(done)} done, {len(todo)} to go", flush=True)
++    t0, ok, err = time.time(), 0, 0
++    with open(a.out, "a") as f, ThreadPoolExecutor(a.workers) as ex:
++        futs = {ex.submit(run, it): it for it in todo}
++        for fut in futs:
++            it = futs[fut]
++            try:
++                rec = fut.result()
++            except Exception as e:  # noqa: BLE001
++                err += 1
++                print(f"[err] {it['id']} {it['domain']}: {str(e)[:200]}", flush=True)
++                continue
++            with lock:
++                f.write(json.dumps(rec, ensure_ascii=False) + "\n")
++                f.flush()
++            ok += 1
++            if ok % 20 == 0:
++                print(f"{ok} ok, {err} err, {time.time() - t0:.0f}s", flush=True)
++    print(f"DONE {ok} ok, {err} err, {time.time() - t0:.0f}s", flush=True)
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/scripts/quantize/dsv41q/refmodel.py b/scripts/quantize/dsv41q/refmodel.py
+index 2c4df8b..7b90d90 100644
+--- a/scripts/quantize/dsv41q/refmodel.py
++++ b/scripts/quantize/dsv41q/refmodel.py
+@@ -69,6 +69,33 @@ def load_reference(ckpt_dir: str):
+             return ref_linear(x, weight, bias)
+ 
+         model.linear = linear_bf16
++    # Hopper (sm_90) has no float -> e8m0 conversion: tilelang's act_quant writes every ue8m0 activation scale as the
++    # zero byte (2^-127), so each FP8 / FP4 GEMM and the in-place KV / attention-output quantization return ~0. The
++    # same power-of-two scales held as float32 give the reference's numbers (rounding is identical); weight scales are
++    # widened from e8m0 once per tensor. DSV41_REF_F32_SCALES=1 forces it, =0 disables it.
++    f32 = os.environ.get("DSV41_REF_F32_SCALES", "auto")
++    if f32 == "1" or (f32 == "auto" and torch.cuda.is_available() and torch.cuda.get_device_capability()[0] < 10):
++        model.scale_dtype = torch.float32
++        prev_linear = model.linear
++
++        def wscale(weight):
++            s = getattr(weight, "_scale_f32", None)
++            if s is None or s.device != weight.device:
++                s = weight._scale_f32 = weight.scale.float()
++            return s
++
++        def linear_f32(x, weight, bias=None):
++            if weight.dtype == torch.float4_e2m1fn_x2:
++                xq, s = kernel.act_quant(x, model.fp8_block_size, model.scale_fmt, torch.float32)
++                return kernel.fp4_gemm(xq, s, weight, wscale(weight), torch.float32,
++                                       act_block_size=model.fp8_block_size)
++            if weight.dtype == torch.float8_e4m3fn and prev_linear is not linear_bf16_marker:
++                xq, s = kernel.act_quant(x, model.fp8_block_size, model.scale_fmt, torch.float32)
++                return kernel.fp8_gemm(xq, s, weight, wscale(weight), torch.float32, block_size=model.fp8_block_size)
++            return prev_linear(x, weight, bias)
++
++        linear_bf16_marker = prev_linear if os.environ.get("DSV41_REF_FP8_LINEAR") == "bf16" else None
++        model.linear = linear_f32
+     model.world_size, model.rank = 1, 0
+     _REF = (model, kernel, engram)
+     return _REF
+@@ -195,7 +222,15 @@ class DiskEngramEmbedding(torch.nn.Module):
+         self.rows, self.dim = wshape
+         self.sdim = sshape[1]
+         self.block_size = block_size
+-        from vllm.models.deepseek_v41.common.engram import _load_engram_disk_ext
++        try:
++            from vllm.models.deepseek_v41.common.engram import _load_engram_disk_ext
++        except ModuleNotFoundError:
++            # no patched vLLM (e.g. a discrete-GPU box with host RAM to spare): hold this layer's table in host memory,
++            # read sequentially at disk speed, and gather rows from it
++            self.table = None
++            self.w = _read_host(wpath, woff, self.rows, self.dim)
++            self.s = _read_host(spath, soff, self.rows, self.sdim)
++            return
+         ext = _load_engram_disk_ext()
+         self.table = ext.EngramDiskTable(wpath, woff, spath, soff, 0, self.rows, self.dim, self.sdim, 0, threads)
+ 
+@@ -205,9 +240,12 @@ class DiskEngramEmbedding(torch.nn.Module):
+         uniq, inv = torch.unique(indices.reshape(-1), return_inverse=True)   # sorted rows: friendlier to the disk
+         n = uniq.numel()
+         ids = uniq.to("cpu", torch.int64).pin_memory()
+-        w = torch.empty(n, self.dim, dtype=torch.uint8, device="cpu").pin_memory()
+-        s = torch.empty(n, self.sdim, dtype=torch.uint8, device="cpu").pin_memory()
+-        self.table.read_rows(ids.data_ptr(), w.data_ptr(), s.data_ptr(), n)
++        if self.table is None:
++            w, s = self.w.index_select(0, ids), self.s.index_select(0, ids)
++        else:
++            w = torch.empty(n, self.dim, dtype=torch.uint8, device="cpu").pin_memory()
++            s = torch.empty(n, self.sdim, dtype=torch.uint8, device="cpu").pin_memory()
++            self.table.read_rows(ids.data_ptr(), w.data_ptr(), s.data_ptr(), n)
+         w = w.to(dev).view(torch.float8_e4m3fn)
+         s = s.to(dev).view(torch.float8_e8m0fnu)
+         vals = w.float().unflatten(-1, (-1, self.block_size)) * s.float().unsqueeze(-1)
+@@ -215,6 +253,21 @@ class DiskEngramEmbedding(torch.nn.Module):
+         return vals[inv].view(*indices.shape, self.dim)
+ 
+ 
++def _read_host(path: str, off: int, rows: int, cols: int, chunk: int = 256 << 20) -> torch.Tensor:
++    """One 1-byte-per-element tensor read straight into (unpinned) host memory: no staging copy, so a ~98 GB Engram
++    table needs ~98 GB of RAM, not twice that."""
++    t = torch.empty(rows, cols, dtype=torch.uint8, device="cpu")
++    mv, n, got = memoryview(t.numpy()).cast("B"), rows * cols, 0
++    with open(path, "rb", buffering=0) as f:
++        f.seek(off)
++        while got < n:
++            r = f.readinto(mv[got: min(n, got + chunk)])
++            if not r:
++                raise IOError(f"short read {path} @ {off + got}")
++            got += r
++    return t
++
++
+ def _dequant_block_fp8(w: torch.Tensor, s: torch.Tensor) -> torch.Tensor:
+     ob, ib = w.size(0) // s.size(0), w.size(1) // s.size(1)
+     x = w.unflatten(0, (-1, ob)).unflatten(-1, (-1, ib)).float() * s[:, None, :, None].float()
+diff --git a/scripts/quantize/p4_assemble.py b/scripts/quantize/p4_assemble.py
+index 8b68428..576cdb2 100644
+--- a/scripts/quantize/p4_assemble.py
++++ b/scripts/quantize/p4_assemble.py
+@@ -41,6 +41,8 @@ def main():
+     ap.add_argument("plan")
+     ap.add_argument("out")
+     ap.add_argument("--no-hash", action="store_true")
++    ap.add_argument("--source", default="deepseek-ai/DeepSeek-V4.1-Flash@2cba9e42",
++                    help="recorded in the index metadata as assembled_from")
+     ap.add_argument("--dense", default="",
+                     help="EXL3 dense linears from p4_dense.py (dense_LXX.safetensors + index): they replace the FP8 "
+                          "wq_b / wo_a / wo_b / shared-expert tensors, and the config gets exl3_moe.dense")
+@@ -155,7 +157,7 @@ def main():
+         for k in th:
+             weight_map[k] = name
+     with open(os.path.join(a.out, "model.safetensors.index.json"), "w") as f:
+-        json.dump({"metadata": {"assembled_from": "deepseek-ai/DeepSeek-V4.1-Flash@2cba9e42"},
++        json.dump({"metadata": {"assembled_from": a.source},
+                    "weight_map": dict(sorted(weight_map.items()))}, f, indent=1)
+     cfg = json.load(open(os.path.join(a.official, "config.json")))
+     if a.test_layers:
+diff --git a/scripts/quantize/p4_kld.py b/scripts/quantize/p4_kld.py
+index 873fe24..724459e 100644
+--- a/scripts/quantize/p4_kld.py
++++ b/scripts/quantize/p4_kld.py
+@@ -134,7 +134,7 @@ def main():
+             q, sc = mxfp8_e4m3_quantize(w.to(torch.bfloat16), is_sf_swizzled_layout=False)
+             return dequant_mxfp8_to_bf16(q, sc).float()
+         heads = {"head_mxfp8": mxfp8_head}
+-    o, kls, agree, nll_q, by_dom, var = 0, [], [], [], {}, {}
++    o, kls, agree, nll_q, by_dom, var, per_seq = 0, [], [], [], {}, {}, []
+     dump_ids, dump_lps = [], []
+     for item in s.iter_logits(blk, heads):
+         i, lg, extra = item if heads else (*item, {})
+@@ -162,11 +162,13 @@ def main():
+         nll_q.append((-lq.gather(-1, tgt[:, None]).squeeze(-1)).cpu())
+         dom = index[i]["domain"].split("_")[0]
+         by_dom.setdefault(dom, []).append((kl.sum().item(), agree[-1].sum().item(), k))
++        per_seq.append({"id": index[i]["id"], "domain": index[i]["domain"], "kl_sum": kl.sum().item(),
++                        "agree_sum": agree[-1].sum().item(), "positions": k})   # paired bootstrap by conversation
+     kl_all, ag_all = torch.cat(kls), torch.cat(agree)
+     res = {"positions": int(kl_all.numel()), "kld_mean": kl_all.mean().item(), "kld_p99": kl_all.quantile(0.99).item(),
+            "top1_agreement": ag_all.mean().item(), "nll_native": ref["nll"].mean().item(),
+            "nll_ours": torch.cat(nll_q).mean().item(), "tensors": a.tensors, "exl3_ckpt": a.exl3_ckpt,
+-           "dense": a.dense, "overlaid": {str(k): v for k, v in overlaid.items()},
++           "dense": a.dense, "overlaid": {str(k): v for k, v in overlaid.items()}, "per_seq": per_seq,
+            "by_domain": {k: {"kld": sum(x[0] for x in v) / sum(x[2] for x in v),
+                              "top1": sum(x[1] for x in v) / sum(x[2] for x in v),
+                              "positions": sum(x[2] for x in v)} for k, v in sorted(by_dom.items())}}
+diff --git a/scripts/quantize/p4_sensitivity.py b/scripts/quantize/p4_sensitivity.py
+index dfc295e..a800197 100644
+--- a/scripts/quantize/p4_sensitivity.py
++++ b/scripts/quantize/p4_sensitivity.py
+@@ -46,7 +46,7 @@ def main():
+     d = load_file(a.cal)
+     t, o = d["tokens"].tolist(), d["offsets"].tolist()
+     idx = json.load(open(os.path.join(os.path.dirname(a.cal), "cal_index.json")))
+-    chat = [i for i, x in enumerate(idx) if x["source"] == "chat"]
++    chat = [i for i, x in enumerate(idx) if x["source"] in ("chat", "muse_native", "base_native")]   # native conversations
+     step = max(1, len(chat) // a.seqs)
+     pick = chat[::step][: a.seqs]                                  # spread over domains (index is domain-ordered)
+     seqs = [t[o[i]: o[i + 1]][: a.len] for i in pick]

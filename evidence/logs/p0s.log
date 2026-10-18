@@ -1,0 +1,63 @@
+Sat Oct 17 12:37:08 UTC 2026
+[transformers] You are using a model of type `deepseek_v41` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+927 sequences, 1,216,384 tokens, streamer ready in 8s, domains ['agentic', 'coding', 'multilingual', 'random', 'religion_philosophy', 'structured']
+layer  0: load  18.6s run   40.6s | experts used 384/384, min/med/max count 822/16051/132948 | moe/resid energy 3.2330 | top expert energy share 0.439, top token share 0.0157
+layer  1: load 205.0s run   44.1s | experts used 384/384, min/med/max count 49/13909/210882 | moe/resid energy 0.6209 | top expert energy share 0.939, top token share 0.0162
+layer  2: load  22.8s run   44.0s | experts used 384/384, min/med/max count 222/13876/176534 | moe/resid energy 0.1958 | top expert energy share 0.610, top token share 0.0382
+layer  3: load  16.0s run   41.9s | experts used 384/384, min/med/max count 289/13612/278067 | moe/resid energy 0.1646 | top expert energy share 0.330, top token share 0.0305
+layer  4: load  16.0s run   41.8s | experts used 384/384, min/med/max count 524/14427/167975 | moe/resid energy 0.1454 | top expert energy share 0.027, top token share 0.0204
+layer  5: load  16.1s run   41.8s | experts used 384/384, min/med/max count 273/13397/277192 | moe/resid energy 0.1121 | top expert energy share 0.045, top token share 0.0406
+layer  6: load  16.0s run   42.1s | experts used 384/384, min/med/max count 375/12160/296110 | moe/resid energy 0.0940 | top expert energy share 0.059, top token share 0.0353
+layer  7: load  16.0s run   42.1s | experts used 384/384, min/med/max count 1039/12647/337112 | moe/resid energy 0.1941 | top expert energy share 0.397, top token share 0.0675
+layer  8: load  16.1s run   43.5s | experts used 384/384, min/med/max count 447/13328/140661 | moe/resid energy 0.1822 | top expert energy share 0.784, top token share 0.0209
+layer  9: load  16.0s run   42.1s | experts used 384/384, min/med/max count 414/13203/382128 | moe/resid energy 0.0623 | top expert energy share 0.091, top token share 0.0808
+layer 10: load  16.0s run   42.0s | experts used 384/384, min/med/max count 560/13860/197945 | moe/resid energy 0.2523 | top expert energy share 0.955, top token share 0.0374
+layer 11: load  16.1s run   42.0s | experts used 384/384, min/med/max count 413/14681/166381 | moe/resid energy 0.0229 | top expert energy share 0.032, top token share 0.0231
+layer 12: load  16.0s run   41.8s | experts used 384/384, min/med/max count 627/14442/154937 | moe/resid energy 0.0195 | top expert energy share 0.059, top token share 0.0202
+layer 13: load  16.0s run   41.8s | experts used 384/384, min/med/max count 369/15213/179233 | moe/resid energy 0.0343 | top expert energy share 0.097, top token share 0.0246
+layer 14: load 220.6s run   48.5s | experts used 384/384, min/med/max count 707/13728/190163 | moe/resid energy 0.0855 | top expert energy share 0.855, top token share 0.0309
+layer 15: load  17.3s run   42.4s | experts used 384/384, min/med/max count 293/14664/170377 | moe/resid energy 0.8184 | top expert energy share 0.951, top token share 0.0143
+layer 16: load  16.0s run   41.7s | experts used 384/384, min/med/max count 743/13744/157688 | moe/resid energy 0.0135 | top expert energy share 0.847, top token share 0.0271
+layer 17: load  16.0s run   41.6s | experts used 384/384, min/med/max count 1027/13639/174552 | moe/resid energy 0.0080 | top expert energy share 0.597, top token share 0.0202
+layer 18: load  16.0s run   41.7s | experts used 384/384, min/med/max count 1284/13842/223854 | moe/resid energy 0.0144 | top expert energy share 0.630, top token share 0.0342
+layer 19: load  16.0s run   41.4s | experts used 384/384, min/med/max count 305/16955/108765 | moe/resid energy 0.0161 | top expert energy share 0.490, top token share 0.0247
+layer 20: load  16.0s run   45.2s | experts used 384/384, min/med/max count 476/13598/293628 | moe/resid energy 0.2228 | top expert energy share 1.000, top token share 0.0452
+layer 21: load  16.1s run   42.1s | experts used 384/384, min/med/max count 220/12133/280565 | moe/resid energy 0.1164 | top expert energy share 1.000, top token share 0.0462
+layer 22: load  16.0s run   42.0s | experts used 384/384, min/med/max count 79/11807/447459 | moe/resid energy 0.0578 | top expert energy share 1.000, top token share 0.1258
+layer 23: load  16.0s run   41.8s | experts used 384/384, min/med/max count 387/13463/198988 | moe/resid energy 0.0298 | top expert energy share 1.000, top token share 0.0269
+layer 24: load  16.0s run   43.1s | experts used 384/384, min/med/max count 345/12188/338237 | moe/resid energy 0.0119 | top expert energy share 1.000, top token share 0.0407
+layer 25: load  16.0s run   42.2s | experts used 384/384, min/med/max count 338/11091/194612 | moe/resid energy 0.0128 | top expert energy share 1.000, top token share 0.0343
+layer 26: load  16.0s run   42.0s | experts used 384/384, min/med/max count 281/12192/375184 | moe/resid energy 0.0074 | top expert energy share 0.999, top token share 0.0991
+layer 27: load  16.0s run   41.8s | experts used 384/384, min/med/max count 31/13032/187654 | moe/resid energy 0.0025 | top expert energy share 0.998, top token share 0.0375
+layer 28: load  16.0s run   43.0s | experts used 384/384, min/med/max count 143/11384/285268 | moe/resid energy 0.0261 | top expert energy share 1.000, top token share 0.0656
+layer 29: load  16.0s run   41.9s | experts used 384/384, min/med/max count 29/12179/219039 | moe/resid energy 0.0092 | top expert energy share 1.000, top token share 0.0380
+layer 30: load  16.0s run   42.2s | experts used 384/384, min/med/max count 176/12050/290478 | moe/resid energy 0.0008 | top expert energy share 0.997, top token share 0.0792
+layer 31: load  16.0s run   42.0s | experts used 384/384, min/med/max count 22/11991/253169 | moe/resid energy 0.0041 | top expert energy share 1.000, top token share 0.0346
+layer 32: load  16.2s run   43.0s | experts used 384/384, min/med/max count 163/11693/168086 | moe/resid energy 0.0000 | top expert energy share 0.834, top token share 0.0322
+layer 33: load  16.0s run   41.9s | experts used 384/384, min/med/max count 150/13150/193056 | moe/resid energy 0.0012 | top expert energy share 0.998, top token share 0.0415
+layer 34: load  16.0s run   42.1s | experts used 384/384, min/med/max count 54/11741/207558 | moe/resid energy 0.0006 | top expert energy share 0.998, top token share 0.0353
+layer 35: load  16.0s run   41.8s | experts used 384/384, min/med/max count 25/12915/353734 | moe/resid energy 0.0003 | top expert energy share 0.809, top token share 0.0546
+layer 36: load  16.0s run   43.2s | experts used 384/384, min/med/max count 20/12643/191973 | moe/resid energy 0.0135 | top expert energy share 0.989, top token share 0.0399
+layer 37: load  16.0s run   42.0s | experts used 384/384, min/med/max count 26/13083/206415 | moe/resid energy 0.0052 | top expert energy share 0.933, top token share 0.0264
+layer 38: load  16.0s run   41.7s | experts used 384/384, min/med/max count 34/14400/165879 | moe/resid energy 0.0069 | top expert energy share 0.708, top token share 0.0421
+layer 39: load  16.0s run   41.8s | experts used 384/384, min/med/max count 145/13971/125588 | moe/resid energy 0.0288 | top expert energy share 0.763, top token share 0.0205
+DONE in 2764s
+
+real	46m8.074s
+user	29m30.103s
+sys	6m18.023s
+Sat Oct 17 13:23:16 UTC 2026
+Traceback (most recent call last):
+  File "/data/recipe/scripts/quantize/p4_sensitivity.py", line 101, in <module>
+    main()
+  File "/data/recipe/scripts/quantize/p4_sensitivity.py", line 54, in main
+    s = Streamer(a.model, seqs)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/recipe/scripts/quantize/dsv41q/stream.py", line 42, in __init__
+    L = max(len(s) for s in seqs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: max() iterable argument is empty
+
+real	0m3.777s
+user	0m4.166s
+sys	0m0.544s

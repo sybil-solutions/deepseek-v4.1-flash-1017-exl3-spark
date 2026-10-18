@@ -1,0 +1,3 @@
+cal: 374 sequences (301 conversations), 548,231 tokens {'chat': 398727, 'exllamav3_std': 133120, 'random': 16384}
+panel: 199 conversations, 316,944 tokens, 254,846 scored positions
+39e0db2f0b58aa432a512aed7b425e3feb1b424c9e02cc315be39bc9b7b71cf2  /data/panel_build/panel.safetensors

@@ -1,0 +1,88 @@
+Sat Oct 17 13:24:07 UTC 2026
+[transformers] You are using a model of type `deepseek_v41` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+layer  0: 2 streams, 21s
+layer  1: 3 streams, 253s
+layer  2: 4 streams, 285s
+layer  3: 5 streams, 305s
+layer  4: 6 streams, 325s
+layer  5: 7 streams, 347s
+layer  6: 8 streams, 369s
+layer  7: 9 streams, 391s
+layer  8: 10 streams, 415s
+layer  9: 11 streams, 439s
+layer 10: 12 streams, 464s
+layer 11: 13 streams, 490s
+layer 12: 14 streams, 517s
+layer 13: 15 streams, 544s
+layer 14: 16 streams, 774s
+layer 15: 17 streams, 812s
+layer 16: 18 streams, 841s
+layer 17: 19 streams, 871s
+layer 18: 20 streams, 902s
+layer 19: 21 streams, 934s
+layer 20: 22 streams, 966s
+layer 21: 23 streams, 999s
+layer 22: 24 streams, 1033s
+layer 23: 25 streams, 1067s
+layer 24: 26 streams, 1102s
+layer 25: 27 streams, 1139s
+layer 26: 28 streams, 1175s
+layer 27: 29 streams, 1213s
+layer 28: 30 streams, 1251s
+layer 29: 31 streams, 1290s
+layer 30: 32 streams, 1329s
+layer 31: 33 streams, 1369s
+layer 32: 34 streams, 1410s
+layer 33: 35 streams, 1452s
+layer 34: 36 streams, 1494s
+layer 35: 37 streams, 1537s
+layer 36: 38 streams, 1581s
+layer 37: 39 streams, 1625s
+layer 38: 40 streams, 1669s
+layer 39: 41 streams, 1714s
+alpha[ 0] = 7.65281  (KL 0.076528)
+alpha[ 1] = 8.05486  (KL 0.080549)
+alpha[ 2] = 6.28345  (KL 0.062834)
+alpha[ 3] = 6.69428  (KL 0.066943)
+alpha[ 4] = 6.20698  (KL 0.062070)
+alpha[ 5] = 6.61391  (KL 0.066139)
+alpha[ 6] = 6.90555  (KL 0.069056)
+alpha[ 7] = 6.78907  (KL 0.067891)
+alpha[ 8] = 5.31211  (KL 0.053121)
+alpha[ 9] = 5.91615  (KL 0.059162)
+alpha[10] = 5.90684  (KL 0.059068)
+alpha[11] = 4.58886  (KL 0.045889)
+alpha[12] = 4.42586  (KL 0.044259)
+alpha[13] = 4.39132  (KL 0.043913)
+alpha[14] = 3.84794  (KL 0.038479)
+alpha[15] = 3.67593  (KL 0.036759)
+alpha[16] = 3.35675  (KL 0.033568)
+alpha[17] = 3.07971  (KL 0.030797)
+alpha[18] = 3.79073  (KL 0.037907)
+alpha[19] = 2.60862  (KL 0.026086)
+alpha[20] = 2.32005  (KL 0.023201)
+alpha[21] = 1.43938  (KL 0.014394)
+alpha[22] = 1.44102  (KL 0.014410)
+alpha[23] = 1.17166  (KL 0.011717)
+alpha[24] = 0.97887  (KL 0.009789)
+alpha[25] = 0.89716  (KL 0.008972)
+alpha[26] = 0.77269  (KL 0.007727)
+alpha[27] = 0.70186  (KL 0.007019)
+alpha[28] = 0.67135  (KL 0.006713)
+alpha[29] = 0.57401  (KL 0.005740)
+alpha[30] = 0.53299  (KL 0.005330)
+alpha[31] = 0.46016  (KL 0.004602)
+alpha[32] = 0.40405  (KL 0.004041)
+alpha[33] = 0.32658  (KL 0.003266)
+alpha[34] = 0.27136  (KL 0.002714)
+alpha[35] = 0.24737  (KL 0.002474)
+alpha[36] = 0.18178  (KL 0.001818)
+alpha[37] = 0.14640  (KL 0.001464)
+alpha[38] = 0.09658  (KL 0.000966)
+alpha[39] = 0.04007  (KL 0.000401)
+DONE 1833s
+
+real	30m44.854s
+user	11m5.029s
+sys	6m53.406s
+SENS_DONE

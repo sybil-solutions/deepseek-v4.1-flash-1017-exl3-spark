@@ -1,0 +1,49 @@
+{
+ "agentic": {
+  "quota": 420000,
+  "tokens": 420000,
+  "native": 420000,
+  "pool_tokens": 557309,
+  "pool_conversations": 115
+ },
+ "coding": {
+  "quota": 300000,
+  "tokens": 300000,
+  "native": 300000,
+  "pool_tokens": 380149,
+  "pool_conversations": 189
+ },
+ "religion_philosophy": {
+  "quota": 240000,
+  "tokens": 240000,
+  "native": 240000,
+  "pool_tokens": 563004,
+  "pool_conversations": 180
+ },
+ "multilingual": {
+  "quota": 120000,
+  "tokens": 120000,
+  "native": 120000,
+  "pool_tokens": 146555,
+  "pool_conversations": 150
+ },
+ "structured": {
+  "quota": 120000,
+  "tokens": 120000,
+  "native": 120000,
+  "pool_tokens": 159078,
+  "pool_conversations": 110
+ },
+ "_total": {
+  "sequences": 927,
+  "tokens": 1216384,
+  "shares": {
+   "agentic": 0.3453,
+   "coding": 0.2466,
+   "religion_philosophy": 0.1973,
+   "multilingual": 0.0987,
+   "structured": 0.0987,
+   "random": 0.0135
+  }
+ }
+}
